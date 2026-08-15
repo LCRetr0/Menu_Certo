@@ -1,0 +1,57 @@
+# ===================================
+# DADOS SENSÍVEIS E CONFIGURAÇÕES LOCAL
+# ===================================
+# Arquivos de propriedades com senhas/chaves locais
+src/main/resources/application-local.properties
+src/main/resources/application-local.yml
+src/main/resources/application-dev.properties
+src/main/resources/application-dev.yml
+src/main/resources/application-secret.*
+src/main/resources/secrets.*
+*.env
+*.key
+*.pem
+
+# ===================================
+# ARTEFATOS DE COMPILAÇÃO (MAVEN / GRADLE)
+# ===================================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!build/projectBuilt
+build/
+.gradle/
+out/
+
+# ===================================
+# CONFIGURAÇÕES DE IDE
+# ===================================
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+bin/
+
+# VS Code
+.vscode/
+
+# ===================================
+# LOGS E BANCO DE DADOS LOCAL
+# ===================================
+*.log
+*.sqlite
+*.db
+
+# ===================================
+# SISTEMA OPERACIONAL
+# ===================================
+.DS_Store
+Thumbs.db
