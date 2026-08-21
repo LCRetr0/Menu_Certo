@@ -1,6 +1,7 @@
 // URL base da sua API Spring Boot
-const API_URL = 'http://localhost:8080/api/produtos';
-
+const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:8080/api/produtos'
+    : 'https://menu-certo.onrender.com/api/produtos';
 // Elementos da Interface DOM
 const areaRespostas = document.getElementById('area-respostas');
 const formCodigo = document.getElementById('form-codigo');
