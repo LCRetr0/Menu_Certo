@@ -39,6 +39,7 @@ public class ControladorFood {
                     break;
                 case 0:
                     System.out.println("Saindo da aplicação...");
+                    System.out.println("Obrigado por utilizar :)");
                     break;
                 default:
                     System.out.println("Opção inválida!");

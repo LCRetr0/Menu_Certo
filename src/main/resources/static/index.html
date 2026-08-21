@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Certo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="container">
+    <header class="header">
+        <h1>Menu Certo</h1>
+        <p>Sua plataforma de consulta de produtos alimentícios</p>
+    </header>
+
+    <section id="area-respostas" class="grid-respostas">
+        <div class="card-produto">
+            <h3>Nome do Produto</h3>
+            <p><strong>Marca:</strong> Exemplo</p>
+            <p><strong>Nutri-Score:</strong> A</p>
+            <p><strong>Ingredientes:</strong> Exemplo de ingredientes...</p>
+        </div>
+    </section>
+
+    <section class="menu-opcoes">
+        <h2>Escolha uma Opção:</h2>
+
+        <div class="painel-botoes">
+            <button onclick="exibirOpcao(1)">1. Buscar por Código de Barras</button>
+            <button onclick="exibirOpcao(2)">2. Buscar por Categoria / Filtros</button>
+        </div>
+
+        <div id="form-codigo" class="formulario hidden">
+            <label for="input-codigo">Digite o código de barras:</label>
+
+            <div class="campo-busca">
+                <input type="text" id="input-codigo" placeholder="Ex: 7891000100103">
+                <button id="btn-buscar-codigo">Buscar</button>
+            </div>
+
+        </div>
+
+        <div id="form-categoria" class="formulario hidden">
+            <label for="select-filtro">Escolha o filtro:</label>
+
+            <select id="select-filtro">
+                <option value="1">Qualidade Nutricional (Nutri-Score)</option>
+                <option value="2">Nível de Processamento (NOVA)</option>
+                <option value="3">Categorias (Termo de Alimento)</option>
+                <option value="4">Restrições (Sem Glúten / Lactose)</option>
+                <option value="5">Produtos de Outro País</option>
+            </select>
+
+            <button id="btn-buscar-categoria">Filtrar</button>
+
+        </div>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

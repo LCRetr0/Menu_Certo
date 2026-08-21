@@ -1,6 +1,7 @@
 package com.Retr0.MenuCerto;
 
 import com.Retr0.MenuCerto.Controller.ControladorFood;
+import com.Retr0.MenuCerto.Controller.ControladorFoodWeb;
 import com.Retr0.MenuCerto.Service.ConsumoApi;
 import com.Retr0.MenuCerto.Service.convertedados;
 import org.springframework.boot.CommandLineRunner;
@@ -16,10 +17,8 @@ public class MenuCertoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        var consumindo = new ConsumoApi();
-        var conversor = new convertedados();
-
-        ControladorFood aplicação = new ControladorFood();
-        aplicação.Principal();
+        // Se quiser rodar a versão do terminal, basta descomentar a linha abaixo:
+        // ControladorFood aplicacao = new ControladorFood();
+        // aplicacao.Principal();
     }
 }
