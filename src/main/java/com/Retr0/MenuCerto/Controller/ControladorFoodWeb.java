@@ -43,34 +43,30 @@ public class ControladorFoodWeb {
         StringBuilder urlFinal = new StringBuilder(ENDERECO_BASE)
                 .append("/api/v2/search.json?countries_tags_en=")
                 .append(pais.toLowerCase())
-                .append("&page_size=10");
+                .append("&page_size=20");
 
         // Aplica os filtros dinamicamente conforme enviados pelo front-end
         if (nutriscore != null && !nutriscore.isBlank()) {
-            urlFinal.append("&nutriscore_grade_tags=").append(nutriscore.toLowerCase());
+            urlFinal.append("&nutriscore_grade_tags=").append(nutriscore.toLowerCase().trim());
         }
 
         if (nova != null) {
-            // No caso de busca padrão usa 'nova_group', se for outro país usa 'nova_group_tags'
-            if (pais.equalsIgnoreCase("brazil")) {
-                urlFinal.append("&nova_group=").append(nova);
-            } else {
-                urlFinal.append("&nova_group_tags=").append(nova);
-            }
+            urlFinal.append("&nova_groups_tags=").append(nova);
         }
 
         if (termo != null && !termo.isBlank()) {
-            urlFinal.append("&categories_tags=").append(termo.trim().replace(" ", "+"));
+            String termoFormatado = termo.trim().replace(" ", "+");
+            urlFinal.append("&search_terms=").append(termoFormatado);
         }
 
         if (restricao != null && !restricao.isBlank()) {
             if (restricao.equalsIgnoreCase("gluten")) {
-                urlFinal.append(pais.equalsIgnoreCase("brazil") ? "&labels_tags_en=gluten-free" : "&labels_tags_en=en:gluten-free");
+                urlFinal.append("&labels_tags_en=en:gluten-free");
             } else if (restricao.equalsIgnoreCase("lactose")) {
-                urlFinal.append(pais.equalsIgnoreCase("brazil") ? "&labels_tags_en=lactose-free" : "&labels_tags_en=en:lactose-free");
+                urlFinal.append("&labels_tags_en=en:no-lactose");
             }
         }
-
+        urlFinal.append("&fields=code,product_name,product_name_pt,brands,image_front_small_url,nutriscore_grade");
         String jsonString = consumindo.obterDados(urlFinal.toString());
         return conversor.obterdados(jsonString, SearchResponseDto.class);
     }
