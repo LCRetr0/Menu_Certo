@@ -56,6 +56,7 @@ public class ControladorFoodWeb {
 
         if (termo != null && !termo.isBlank()) {
             String termoFormatado = termo.trim().replace(" ", "+");
+            urlFinal.append("&categories_tags=").append(termo.trim().replace(" ", "+"));
             urlFinal.append("&search_terms=").append(termoFormatado);
         }
 
